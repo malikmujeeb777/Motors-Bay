@@ -1,0 +1,186 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:motorsbay1/SRC/Presentation/Widgets/Auth/Login/loginPhone/otp.dart';
+import 'package:motorsbay1/SRC/Presentation/Widgets/Auth/Login/login_on_board.dart';
+import 'package:motorsbay1/exports.dart';
+
+class LoginPhone extends StatefulWidget {
+  const LoginPhone({super.key});
+  @override
+  State<LoginPhone> createState() => _LoginPhoneState();
+}
+
+TextEditingController numberController = TextEditingController();
+
+class _LoginPhoneState extends State<LoginPhone> {
+  String countryCode = '+92';
+  String countryFlag = '🇵🇰';
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  48.y,
+                  AppText(
+                    "Login With Phone",
+                    style: themeData.textTheme.headlineLarge,
+                  ),
+                  AppText(
+                    maxLine: 2,
+                    "Welcome! Please Enter Your Phone Number",
+                    style: themeData.textTheme.bodyMedium,
+                  ),
+                  30.y,
+                  AppTextField(
+                    prefixIcon: Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12)),
+                      width: 100.w,
+                      child: MaterialButton(
+                        padding: const EdgeInsets.only(left: 6, right: 6),
+                        onPressed: () {
+                          showCountryPicker(
+                              showPhoneCode: true,
+                              context: context,
+                              onSelect: (v) {
+                                setState(() {
+                                  countryCode = "+${v.phoneCode}";
+                                  countryFlag = v.flagEmoji;
+                                });
+                              });
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppText(
+                              countryFlag,
+                              style: themeData.textTheme.bodyMedium!.copyWith(
+                                color: themeData.colorScheme.tertiary,
+                              ),
+                            ),
+                            5.x,
+                            AppText(
+                              countryCode,
+                              style: themeData.textTheme.bodyMedium!.copyWith(
+                                color: themeData.colorScheme.tertiary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    controller: numberController,
+                    textInputType: TextInputType.phone,
+                    hintText: "Phone Number",
+                    validator: Validate.phone,
+                  ),
+                  40.y,
+                  CommonButton(
+                    horizontalMargin: 0,
+                    onTap: _onLogin,
+                    text: "Send OTP",
+                  ),
+                ],
+              ).padHorizontal(24),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppText(
+                "Don't have an account?",
+                style: themeData.textTheme.bodyLarge,
+              ),
+              7.x,
+              AppText(
+                "Create Account",
+                style: themeData.textTheme.bodyLarge
+                    ?.copyWith(color: themeData.colorScheme.primary),
+              ).onTapped(onTap: _createOrLoginTap),
+            ],
+          ),
+          (16 + 1.bottomBar).y,
+        ],
+      ),
+    );
+  }
+
+  void _onLogin() async {
+    String phoneNumber = "$countryCode${numberController.text.trim()}";
+
+    if (phoneNumber.isEmpty || numberController.text.length < 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please enter a valid phone number")),
+      );
+      return;
+    }
+
+    try {
+      // Show loading indicator
+      CommonCircularProgressIndicator.show(context);
+
+      // Verify the phone number
+      await _auth.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          // Automatically sign in if verification is completed (e.g., on Android devices)
+          await _auth.signInWithCredential(credential);
+          CommonCircularProgressIndicator.hide(context);
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => AppFrame()),
+          );
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          CommonCircularProgressIndicator.hide(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Verification failed: ${e.message}")),
+          );
+        },
+        codeSent: (String verificationId, int? resendToken) {
+          CommonCircularProgressIndicator.hide(context);
+          // Navigate to OTP screen
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => OTPScreen(
+                verificationId: verificationId,
+                phoneNumber: phoneNumber,
+                isNewUser: true, // Set this based on your logic
+              ),
+            ),
+          );
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {
+          // Handle timeout if needed
+        },
+      );
+    } catch (e) {
+      CommonCircularProgressIndicator.hide(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Error: ${e.toString()}")),
+      );
+    }
+  }
+
+  void _createOrLoginTap() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginOnBoard(isLogin: false)),
+    );
+  }
+}
+

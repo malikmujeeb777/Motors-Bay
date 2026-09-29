@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Motorsbay1</string>
+    <!-- 
+    IMPORTANT: You need to configure Google Sign-In in Firebase console:
+    1. Go to Firebase Console > Your Project > Authentication
+    2. Enable Google Sign-In method
+    3. Add SHA-1 and SHA-256 fingerprints of your signing key
+    4. Go to Google Cloud Console > APIs & Services > Credentials
+    5. Create an OAuth client ID for Android application
+    6. Add the generated Web Client ID below
+    -->
+    <string name="server_client_id">270442760140-2159qnqpmp75kul67t62p811apee6qrg.apps.googleusercontent.com</string>
+</resources>

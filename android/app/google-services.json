@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "270442760140",
+    "project_id": "motorsbay1-2a24a",
+    "storage_bucket": "motorsbay1-2a24a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270442760140:android:d05c1d1088b15cb6f13f69",
+        "android_client_info": {
+          "package_name": "com.example.motorsbay1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270442760140-op9l4f3erre3tr75olgt7hgsr3k2c63p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.motorsbay1",
+            "certificate_hash": "51c3392f94f81bd1990c750a9bc589d73cecd794"
+          }
+        },
+        {
+          "client_id": "270442760140-2159qnqpmp75kul67t62p811apee6qrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBabnKBVsxr5wxHlOhmUqSPMVPl62_G6bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270442760140-2159qnqpmp75kul67t62p811apee6qrg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "270442760140-kaf723hhqcf88fucmmekaelkpk7nqlh1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.motorsbayAdmin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270442760140:android:b235b3aec6c962def13f69",
+        "android_client_info": {
+          "package_name": "com.example.motorsbay_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270442760140-2159qnqpmp75kul67t62p811apee6qrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBabnKBVsxr5wxHlOhmUqSPMVPl62_G6bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270442760140-2159qnqpmp75kul67t62p811apee6qrg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "270442760140-kaf723hhqcf88fucmmekaelkpk7nqlh1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.motorsbayAdmin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

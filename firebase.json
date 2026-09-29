@@ -1,0 +1,29 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "motorsbay1-2a24a",
+          "appId": "1:270442760140:android:d05c1d1088b15cb6f13f69",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "motorsbay1-2a24a",
+          "configurations": {
+            "android": "1:270442760140:android:d05c1d1088b15cb6f13f69",
+            "ios": "1:270442760140:ios:f580e0265ef30400f13f69"
+          }
+        }
+      }
+    }
+  },
+  "functions": {
+    "predeploy": []
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

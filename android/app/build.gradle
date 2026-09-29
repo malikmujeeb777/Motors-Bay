@@ -1,0 +1,90 @@
+plugins {
+    id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.motorsbay1"
+    compileSdk = flutter.compileSdkVersion
+    // ndkVersion setting removed to fix build issue
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    
+    // Remove explicit toolchain specification to use the system default Java
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.example.motorsbay1"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = 23
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        
+        // Enable multidex support
+        multiDexEnabled = true
+        
+        // Enable renderscript for 3D model rendering
+        renderscriptTargetApi = 21
+        renderscriptSupportModeEnabled = true
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+            
+            // Enable minification for release builds
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        
+        debug {
+            // Enable WebView debugging in debug builds
+            manifestPlaceholders = [enableWebViewDebugging: "true"]
+            
+            // Disable minification for debug builds for faster compilation
+            minifyEnabled = false
+            shrinkResources = false
+        }
+    }
+    
+    // Add configuration for native libraries
+    packagingOptions {
+        pickFirst '**/*.so'
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.4"
+    implementation "com.google.android.gms:play-services-auth:20.7.0"
+    
+    // Add support for multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+    
+    // Add WebView dependencies
+    implementation 'androidx.webkit:webkit:1.6.0'
+    
+    // Add Firebase App Check
+    implementation 'com.google.firebase:firebase-appcheck-playintegrity:17.1.1'
+    implementation 'com.google.firebase:firebase-appcheck-debug:17.1.1'
+}
