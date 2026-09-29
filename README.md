@@ -1,21 +1,20 @@
 # 🚗 Motors Bay (Final Year Project)
 
-### AI-Powered Automotive Marketplace & Vehicle Ownership Platform
+### Integrated Automotive Marketplace & Vehicle Management Platform
 
 **Motors Bay** is an integrated automotive platform designed to simplify the complete vehicle lifecycle — from **buying and selling vehicles to customization, maintenance, and community engagement**.
 
-The project combines **AI-powered recommendations, 3D vehicle visualization, vehicle listings, real-time communication, maintenance tracking, and automotive services** into a unified platform.
+The project combines **recommendation system, 3D vehicle visualization, vehicle listings, real-time communication, maintenance tracking, and automotive services** into a unified platform.
 
 ## ✨ Key Features
 
 * 🚘 **Vehicle Marketplace** — Search, filter, buy, sell, and manage vehicle listings
-* 🤖 **AI Recommendations** — Personalized vehicle recommendations based on user preferences and activity
+* 🤖 **Recommendation System** — Personalized vehicle recommendations based on user preferences and activity
 * 🧊 **3D Vehicle Visualization** — Explore and customize vehicles using interactive 3D models
 * 💬 **Real-Time Chat** — Communication between buyers, sellers, dealerships, and users
 * ⭐ **Reviews & Ratings** — Build trust through user and dealership feedback
 * 🔐 **Vehicle Verification** — Verification workflows for vehicles, sellers, and dealerships
 * 🔧 **Maintenance Tracking** — Track expenses, repairs, service history, and maintenance reminders
-* 📡 **OBD-II Integration** — Vehicle health and diagnostic monitoring
 * 👥 **Automotive Community** — Forums, discussions, clubs, and user-generated content
 * 🤖 **AI Chatbot** — AI-powered automotive assistance
 * 🛠️ **Auto Services Marketplace** — Discover automotive repair, detailing, and other services
@@ -36,9 +35,6 @@ The project combines **AI-powered recommendations, 3D vehicle visualization, veh
 **AI / Machine Learning**
 
 * Python
-* PyTorch
-* Pandas
-* NumPy
 * FastAPI
 * Gemini API
 * Machine Learning Recommendation System
