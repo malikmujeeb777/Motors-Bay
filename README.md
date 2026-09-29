@@ -1,58 +1,100 @@
-# MotorsBay
+# 🚗 Motors Bay (Final Year Project)
 
-A Flutter project for vehicle marketplace with a Python-based recommendation system.
+### AI-Powered Automotive Marketplace & Vehicle Ownership Platform
 
-## Project Overview
+**Motors Bay** is an integrated automotive platform designed to simplify the complete vehicle lifecycle — from **buying and selling vehicles to customization, maintenance, and community engagement**.
 
-This project consists of:
-1. A Flutter mobile application for the MotorsBay marketplace
-2. A Python-based recommendation system that runs locally
+The project combines **AI-powered recommendations, 3D vehicle visualization, vehicle listings, real-time communication, maintenance tracking, and automotive services** into a unified platform.
 
-## Recommendation System
+## ✨ Key Features
 
-The new Python recommendation system is designed to:
+* 🚘 **Vehicle Marketplace** — Search, filter, buy, sell, and manage vehicle listings
+* 🤖 **AI Recommendations** — Personalized vehicle recommendations based on user preferences and activity
+* 🧊 **3D Vehicle Visualization** — Explore and customize vehicles using interactive 3D models
+* 💬 **Real-Time Chat** — Communication between buyers, sellers, dealerships, and users
+* ⭐ **Reviews & Ratings** — Build trust through user and dealership feedback
+* 🔐 **Vehicle Verification** — Verification workflows for vehicles, sellers, and dealerships
+* 🔧 **Maintenance Tracking** — Track expenses, repairs, service history, and maintenance reminders
+* 📡 **OBD-II Integration** — Vehicle health and diagnostic monitoring
+* 👥 **Automotive Community** — Forums, discussions, clubs, and user-generated content
+* 🤖 **AI Chatbot** — AI-powered automotive assistance
+* 🛠️ **Auto Services Marketplace** — Discover automotive repair, detailing, and other services
 
-1. Run locally on the developer's PC
-2. Follow the same scoring approach as the current Dart implementation
-3. Use only essential parameters from user preferences and ad listings
-4. Include simplified test data for testing accuracy
+## 🛠️ Technology Stack
 
-### Essential Parameters
+**Frontend**
 
-The system focuses on these key parameters:
+* Flutter / Dart
 
-- **User Preferences**:
-  - `vehicle_type` (Sedan, SUV, Hatchback, etc.)
-  - `condition` (New, Used)
-  - `price_range` (Price brackets in PKR)
-  - `preferred_brands` (List of car brands)
-  - `fuel_type` (Petrol, Diesel, Hybrid, Electric)
-  - `transmission` (Automatic, Manual)
+**Backend & Cloud**
 
-### Running the Recommendation System
+* Firebase
+* Cloud Firestore
+* Firebase Authentication
+* Firebase Storage
 
-1. Ensure Python 3.8+ is installed
-2. Install dependencies:
-   ```bash
-   pip install fastapi uvicorn pandas
-   ```
-3. Start the recommendation system:
-   ```bash
-   python recommendation_system.py
-   ```
-4. Access the API documentation at:
-   ```
-   http://localhost:8000/docs
-   ```
-5. Generate test data:
-   ```
-   http://localhost:8000/create_test_data/
-   ```
+**AI / Machine Learning**
 
-## Flutter Application
+* Python
+* PyTorch
+* Pandas
+* NumPy
+* FastAPI
+* Gemini API
+* Machine Learning Recommendation System
 
-For the Flutter application development:
+**Tools**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-- [Flutter documentation](https://docs.flutter.dev/)
+* Git / GitHub
+* Android Studio
+* Visual Studio Code
+
+## 🏗️ Architecture
+
+```text
+              Motors Bay
+                  │
+        ┌─────────┼─────────┐
+        ▼         ▼         ▼
+     Flutter   Firebase   AI / ML
+      App       Backend    Services
+        │         │         │
+        └─────────┼─────────┘
+                  ▼
+       Automotive Ecosystem
+```
+
+## 🚀 Getting Started
+
+### Clone
+
+```bash
+git clone https://github.com/malikmujeeb777/Motors-Bay.git
+cd Motors-Bay
+```
+
+### Install Dependencies
+
+```bash
+flutter pub get
+```
+
+### Run
+
+```bash
+flutter run
+```
+
+For the Python/AI components:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🎓 Project
+
+**Motors Bay** was developed as a **Final Year Project (FYP)** in Software Engineering, combining mobile development, AI/ML, cloud services, 3D visualization, and automotive technology into a unified platform.
+
+## 📌 Repository
+
+**GitHub:** https://github.com/malikmujeeb777/Motors-Bay
